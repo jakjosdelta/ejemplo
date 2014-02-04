@@ -1,0 +1,55 @@
+public class deberElizabeth {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+        int arreglo [] = new int[30];
+        int a,aux,i,j,MaxMin,nMax=0,nMin=0,vecesMax=0,vecesMin=0;
+        
+        System.out.println("Igrese el numero de elementos del arreglo max 30 numeros  ");
+        a=lector.nextInt();
+        
+        for(i=0;i<a;i++){
+            System.out.print("X["+(i+1)+"]= ");
+            arreglo[i]=lector.nextInt();
+        }
+        
+        for(i=0;i<a;i++){
+            for(j=i+1;j<a;j++){
+                if(arreglo[i]<arreglo[j]){
+                    aux=arreglo[i];
+                    arreglo[i]=arreglo[j];
+                    arreglo[j]=aux;
+                }                               
+            }
+        }     
+        
+        
+        //Saco el numero maximo y el numero minimo
+        for(MaxMin=0;MaxMin<a;MaxMin++){
+            if(MaxMin==0){
+                nMax=arreglo[MaxMin];
+            }else{
+                if(MaxMin==(a-1)){
+                    nMin=arreglo[MaxMin];
+                }
+            }
+        }
+        
+        
+        //saco la cantidad de veces que se repite cada uno maximo y el minimo
+        for(i=0;i<a;i++){
+            if(arreglo[i]==nMax){
+                vecesMax++;
+            }else{
+                if(arreglo[i]==nMin){
+                    vecesMin++;
+                }
+            }
+        }
+        
+        System.out.println("Numero Mayor "+nMax+" se repite "+vecesMax+" veces");
+        System.out.println("Numero Menor "+nMin+" se repite "+vecesMin+" veces");
+        
+        
+        
+    }
+}
